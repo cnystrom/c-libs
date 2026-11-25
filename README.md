@@ -18,6 +18,10 @@ From Chris Nystrom's personal source archive (the hallie tree), posted
 publicly at his request. Headers are typically copyright 2002 and 2005
 (ssh_lib: 2004).
 
+## Pages
+
+Chris's old programs page is at https://nystrom.family/chris/old/programs.html.
+
 ## License
 
 Chris's files are typically under the GNU LGPL 2.1 or GPL 2; see each
