@@ -29,6 +29,8 @@ Chris's files are typically under the GNU LGPL 2.1 or GPL 2; see each
 header. `ssh_lib.bad/ssh_lib.c` has a short author header without a
 license paragraph.
 
+The GNU LGPL 2.1 (or later) text is in LICENSE; the GNU GPL 2 (or later) text is in COPYING.
+
 ## Third-party files removed
 
 `misc_lib/strlcat.c` and `misc_lib/strlcpy.c` (Todd C. Miller, 1998).
