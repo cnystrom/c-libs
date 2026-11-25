@@ -1,0 +1,26 @@
+
+/* client.c */
+
+#include <string.h>
+#include "udp_lib.h"
+
+#define SERVER  "localhost"
+#define PORT  (13)
+
+int main()
+{
+	int ret;
+	char message[128];
+
+	init_udp_client(SERVER, PORT);
+
+	ret = read_udp(message, 128);
+
+	printf("client: %d bytes read\n", ret);
+
+	close_udp();
+
+	printf("message = |%s|\n", message);
+
+	exit(0);
+}
