@@ -21,6 +21,7 @@ publicly at his request. Headers are typically copyright 2002 and 2005
 ## Pages
 
 Chris's old programs page is at https://nystrom.family/chris/old/programs.html.
+All of Chris's code: https://nystrom.family/chris/code/
 
 ## License
 
