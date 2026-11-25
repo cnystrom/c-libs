@@ -41,9 +41,9 @@ were stripped.
 
 - **udp_lib**: `make` succeeded here with gcc (a signedness warning in
   `recvfrom`).
-- **misc_lib**: `make` fails because the Makefile still lists the
-  removed Todd Miller sources. Some remaining files also fail on a
-  modern `mkdir()` (two-argument) if compiled directly.
+- **misc_lib**: a new original `strlcpy`/`strlcat` (2026) was added so
+  the existing Makefile can build the library. Some remaining files also
+  fail on a modern `mkdir()` (two-argument) if compiled directly.
 - **new_rpc.bad**: the `.a` library built; linking the sample `server`
   failed on `-lnsl` (a library from older Unix, not present here).
 - **ssh_lib.bad**: the tests include `../misc_lib/uio.h` and did not
