@@ -9,6 +9,9 @@ A bundle of Chris Nystrom's small C libraries from the mid-2000s:
 - **file_xfr_lib** — `ftpget.c` and `ftpupload.c` (libcurl-based).
 - **ssh_lib.bad** — a PTY-based SSH helper library (12 Mar 2004). The
   directory name is original.
+- **new_rpc.2004** — a dated 2002/2004 snapshot of the same RPC-over-sockets
+  library, with example `client` and `server` programs. It is an ancestor
+  of NewIO. This tree builds and the example runs (unlike `new_rpc.bad`).
 - **new_rpc.bad** — an RPC-over-sockets library. The `.bad` tree is the
   slightly newer of the two snapshots; `.old` was not included.
 
@@ -49,6 +52,9 @@ were stripped.
 - **udp_lib**: `make` builds the library and the example `client`,
   `client2`, and `server` programs (a signedness warning in `recvfrom`).
   `time.c` may need `<arpa/inet.h>` for `inet_addr` on some systems.
+- **new_rpc.2004**: `make` builds the example `client` and `server`.
+  The original Makefile used `-lnsl`, which was dropped so it links on
+  current Linux. A client/server run on localhost succeeds.
 - **new_rpc.bad**: the `.a` library built; linking the sample `server`
   failed on `-lnsl` (a library from older Unix, not present here).
   `new_rpc_s.c` is also missing `<stdio.h>`, and `new_rpc_c.c` has a
