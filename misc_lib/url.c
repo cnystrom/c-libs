@@ -117,7 +117,8 @@ PUBLIC void parse_url(const char *s, url * url)
 		url->port[i] = NUL;
 		index++;	// /
 	} else {
-		strncpy(url->port, "0", 1);
+		/* FIX (2026): strncpy(url->port, "0", 1) left port without a NUL terminator. */
+		strcpy(url->port, "0");
 	}
 
 //  printf("port = %s\n", url->port);

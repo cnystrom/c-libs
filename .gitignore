@@ -10,3 +10,6 @@ core
 *.au
 *.bak
 *~
+
+# local test binary
+test_url

@@ -54,6 +54,12 @@ new:
 		make clean
 		make all
  
+test:		test_url
+		./test_url
+
+test_url:	test_url.c url.o
+		$(CC) $(CFLAGS) -o test_url test_url.c url.o
+
 clean:
-		rm -f *.o *.a *.log $(BIN) core a.out *~
+		rm -f *.o *.a *.log $(BIN) core a.out *~ test_url
  
