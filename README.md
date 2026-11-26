@@ -39,15 +39,24 @@ were stripped.
 
 ## Build
 
-- **udp_lib**: `make` succeeded here with gcc (a signedness warning in
-  `recvfrom`).
-- **misc_lib**: a new original `strlcpy`/`strlcat` (2026) was added so
-  the existing Makefile can build the library. Some remaining files also
-  fail on a modern `mkdir()` (two-argument) if compiled directly.
+- **misc_lib**: `make` builds the library. A new original `strlcpy`/`strlcat`
+  (2026) was added so the Makefile can build it. The 2026.1 release fixes
+  a bug in `url.c`: when a URL had no port, the port string was left
+  without a terminating NUL. `misc_lib/test_url.c` checks that case.
+  Some remaining files also fail on a modern `mkdir()` (two-argument) if
+  compiled directly. `misc_lib.h` declares `basename`, which can clash
+  with glibc when `_GNU_SOURCE` is set.
+- **udp_lib**: `make` builds the library and the example `client`,
+  `client2`, and `server` programs (a signedness warning in `recvfrom`).
+  `time.c` may need `<arpa/inet.h>` for `inet_addr` on some systems.
 - **new_rpc.bad**: the `.a` library built; linking the sample `server`
   failed on `-lnsl` (a library from older Unix, not present here).
-- **ssh_lib.bad**: the tests include `../misc_lib/uio.h` and did not
-  build standalone from this directory.
-- **file_xfr_lib**: needs `<curl/curl.h>`; not compiled here.
+  `new_rpc_s.c` is also missing `<stdio.h>`, and `new_rpc_c.c` has a
+  conflicting prototype for `nrpc_init_server`.
+- **ssh_lib.bad**: the sources include `../misc_lib/uio.h`, which is not
+  in this tree, so they did not build standalone from this directory.
+- **file_xfr_lib**: needs libcurl. `ftpget.c` includes `<curl/types.h>`,
+  which was removed from current libcurl, so this did not compile here.
+  `ftpupload.c` is also missing `<unistd.h>` for `close`.
 
 A hardcoded test-login credential in `file_xfr_lib/ftpupload.c` and in `ssh_lib.bad/test1.c` and `test2.c` was replaced with the placeholder CHANGEME. No other source was modified.
